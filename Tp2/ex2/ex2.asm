@@ -3,24 +3,28 @@ section .data
 	msg_len	equ	$ - msg
 
 section .text
-	global _main
+	global main
 	extern toupper
-	global _start
 
-_start:
-	call _main
-	ret
+main:
+	push	ebp
+	mov 	ebp, esp
+	mov 	edx, msg
+	push 	edx
+	call upcase
+	mov 	ecx, eax
+	mov 	edx, msg_len
+	mov 	eax, 4
+	mov 	ebx, 1
+	int 	80h
+	mov 	eax, 1
+	int 	80h
 
-_main:
-	mov eax, msg
-	push eax
-	call toupper
-	mov ecx, eax
-	mov edx, msg_len
-	mov eax, 4
-	mov ebx, 1
-	int 80h
-	mov eax, 1
-	int 80h
 
+upcase:
+	push 	ebp
+	mov		ebp, esp
+	mov		eax, [ebp + 4]
+_loop:
 	
+

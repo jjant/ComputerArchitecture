@@ -1,3 +1,3 @@
 nasm -f elf32 ex2.asm
-
-ld -m elf_i386 -dynamic-linker /lib/ld-linux.so.2 -o hola -lc ex2.o
+gcc -m32 -c upcase.c
+gcc -m32 ex2.o upcase.o -o ex2.out
