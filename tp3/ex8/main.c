@@ -1,8 +1,5 @@
 #include <stdio.h>
 
-int main(int argc, char const *argv[])
-{
-	printf("Estoy en main!\n");
-	printf("Antes del segm\n");
+int main(int argc, char const *argv[]) {
 	return 0;
 }

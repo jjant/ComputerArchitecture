@@ -14,6 +14,6 @@ _start:
 	push 	esi	; load argc
 	call 	main	; call main
 
-	push 	eax		; exit with main's ret value
-	mov		ebx,0
+	mov		ebx, eax	; exit with main's ret value
+	mov		eax, 1		; load exit syscall
 	int		80h
